@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: admin-center
+server:
+  port: 8761 #启动端口
+
+
+#配置eureka注册中心
+eureka:
+  client:
+    register-with-eureka: false #false:不作为一个客户端注册到注册中心
+    #是否检索服务 表示是否从Eureka Server获取注册信息，默认为true。 如果这是一个单点的 Eureka Server，不需要同步其他节点的数据，可以设为false为true时，可以启动，但报异常：Cannot execute request on any known server
+    fetch-registry: false
+  server:
+    enable-self-preservation: true #设置为true 关闭自我保护
+    eviction-interval-timer-in-ms: 60000  #eureka server清理无效节点的时间间隔，默认60000毫秒，即60秒
