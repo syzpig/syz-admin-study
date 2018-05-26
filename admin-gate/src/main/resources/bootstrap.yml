@@ -1,0 +1,29 @@
+#配置配置中心
+spring:
+    cloud:
+        config:
+            discovery:
+               service-id: ace-config
+               enabled: true
+            label: master
+            name: gate
+            profile: dev
+## 设置熔断超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+#请求和响应GZIP压缩支持
+feign:
+  compression:
+    request:
+      enabled: true  #支持请求GZIP压缩
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true  #支持响应GZIP压缩
+

@@ -2,15 +2,14 @@ spring:
   application:
     name: admin-center
 server:
-  port: 8761 #Æô¶¯¶Ë¿Ú
+  port: 8761 #å¯åŠ¨ç«¯å£
 
 
-#ÅäÖÃeureka×¢²áÖĞĞÄ
 eureka:
   client:
-    register-with-eureka: false #false:²»×÷ÎªÒ»¸ö¿Í»§¶Ë×¢²áµ½×¢²áÖĞĞÄ
-    #ÊÇ·ñ¼ìË÷·şÎñ ±íÊ¾ÊÇ·ñ´ÓEureka Server»ñÈ¡×¢²áĞÅÏ¢£¬Ä¬ÈÏÎªtrue¡£ Èç¹ûÕâÊÇÒ»¸öµ¥µãµÄ Eureka Server£¬²»ĞèÒªÍ¬²½ÆäËû½ÚµãµÄÊı¾İ£¬¿ÉÒÔÉèÎªfalseÎªtrueÊ±£¬¿ÉÒÔÆô¶¯£¬µ«±¨Òì³££ºCannot execute request on any known server
+    register-with-eureka: false #false:ä¸ä½œä¸ºä¸€ä¸ªå®¢æˆ·ç«¯æ³¨å†Œåˆ°æ³¨å†Œä¸­å¿ƒ
+    #ä¸ºtrueæ—¶ï¼Œå¯ä»¥å¯åŠ¨ï¼Œä½†æŠ¥å¼‚å¸¸ï¼šCannot execute request on any known server
     fetch-registry: false
   server:
-    enable-self-preservation: true #ÉèÖÃÎªtrue ¹Ø±Õ×ÔÎÒ±£»¤
-    eviction-interval-timer-in-ms: 60000  #eureka serverÇåÀíÎŞĞ§½ÚµãµÄÊ±¼ä¼ä¸ô£¬Ä¬ÈÏ60000ºÁÃë£¬¼´60Ãë
+    enable-self-preservation: true # è®¾ä¸ºfalseï¼Œå…³é—­è‡ªæˆ‘ä¿æŠ¤
+    eviction-interval-timer-in-ms: 60000
