@@ -25,7 +25,7 @@ public class EurekaInstanceCanceledListener implements ApplicationListener {
     private Logger log = LoggerFactory.getLogger(EurekaInstanceCanceledListener.class);
     @Override
     public void onApplicationEvent(ApplicationEvent applicationEvent) {
-        // 服务挂掉事件
+        // EurekaInstanceCanceledEvent服务挂掉事件  挂掉时触发
         if (applicationEvent instanceof EurekaInstanceCanceledEvent) {
             //获取失效事件
             EurekaInstanceCanceledEvent event = (EurekaInstanceCanceledEvent) applicationEvent;

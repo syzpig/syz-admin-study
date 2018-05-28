@@ -12,4 +12,4 @@ eureka:
     fetch-registry: false
   server:
     enable-self-preservation: true # 设为false，关闭自我保护
-    eviction-interval-timer-in-ms: 60000
+    eviction-interval-timer-in-ms: 60000  #清理间隔  就是当服务down时，隔着这么长时间后从注册中心清除调，  如果开启自我保护后，则不会清除，显示服务为挂掉状态

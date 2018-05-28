@@ -10,15 +10,15 @@ server:
     port: 8765 #启动端口
 #配置路由
 zuul:
-#/api/uc/user/test --> user-center   /user/test
+#/api/uc/user/test --> user-center   /user/test   stripPrefix不设置时，不加uc前缀
 #/api/uc/user/test --> user-center   /uc/user/test
 #/api/admin/user/test   /admin/user/test stripPrefix:false
-  prefix: /api #为zuul设置一个公共的前缀
+  prefix: /api #为zuul设置一个公共的前缀 所有请求的前缀  如果routes不p配置就是api/user-center/user/test
   routes:
     uc:
       path: /uc/**
       serviceId: user-center
-#      stripPrefix: false  # 不移除前缀 uc
+#      stripPrefix: false  # 设置为false 不移除前缀 uc  就是访问时加uc  #/api/uc/user/test  ----/uc/user/test
 
 #ribbon的配置其实非常简单，直接在application.properties中配置即可，如下
 ribbon:
@@ -49,7 +49,7 @@ eureka:
         healthCheckUrlPath: /health # 获取此实例的相对健康检查URL路径，默认为/health
         lease-renewal-interval-in-seconds: 30  #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒
         lease-expiration-duration-in-seconds: 90  #  Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
-        # 多网卡制定IP，docker部署推荐
+        # 多网卡制定IP，docker部署推荐，因为docker产生ip是不确定性的
 #        prefer-ip-address: true
 #        ip-address: 127.0.0.1
     client:
